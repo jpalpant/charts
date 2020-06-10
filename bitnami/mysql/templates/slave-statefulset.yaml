@@ -222,7 +222,7 @@ spec:
         {{- if or .Values.root.injectSecretsAsVolume .Values.replication.injectSecretsAsVolume }}
         - name: mysql-credentials
           secret:
-            secretName: {{ template "mysql.fullname" . }}
+            secretName: {{ template "mysql.secretName" . }}
             items:
               {{- if .Values.root.injectSecretsAsVolume }}
               - key: mysql-root-password
